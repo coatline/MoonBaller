@@ -134,10 +134,10 @@ public class Player : MonoBehaviour
         else if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             //transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-            var vel = rb.velocity;
+            var vel = rb.linearVelocity;
             vel.x = -moveSpeed * Time.deltaTime;
             notmoving = false;
-            rb.velocity = vel;
+            rb.linearVelocity = vel;
             var sp = GetComponent<SpriteRenderer>();
             if (canJump)
             {
@@ -149,9 +149,9 @@ public class Player : MonoBehaviour
         else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
             //transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            var vel = rb.velocity;
+            var vel = rb.linearVelocity;
             vel.x = moveSpeed * Time.deltaTime;
-            rb.velocity = vel;
+            rb.linearVelocity = vel;
             notmoving = false;
             var sp = GetComponent<SpriteRenderer>();
             sp.flipX = false;
@@ -163,9 +163,9 @@ public class Player : MonoBehaviour
         else
         {
             animator.enabled = false;
-            var vel = rb.velocity;
+            var vel = rb.linearVelocity;
             vel.x = 0;
-            rb.velocity = vel;
+            rb.linearVelocity = vel;
             notmoving = true;
         }
     }
@@ -180,7 +180,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Meteor") && transform.position.y < 4)
         {
-            rb.velocity = new Vector2(0, 0);
+            rb.linearVelocity = new Vector2(0, 0);
             transform.position = new Vector3(7, 4, 0);
             //if (Goal.score > 0)
             //{

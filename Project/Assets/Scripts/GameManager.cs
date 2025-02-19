@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
                         meteor.transform.localScale = new Vector3(rand, rand, rand);
                         meteor.transform.position = new Vector2(Random.Range(-6, 6), Random.Range(5, 7));
                         var meteorRB = meteor.GetComponent<Rigidbody2D>();
-                        meteorRB.velocity = new Vector2(0, Random.Range(-20, 0));
+                        meteorRB.linearVelocity = new Vector2(0, Random.Range(-20, 0));
                     }
                 }
 

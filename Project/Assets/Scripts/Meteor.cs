@@ -13,7 +13,7 @@ public class Meteor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (transform.position.y <= -1 && rb.velocity.y < -5 || collision.gameObject.CompareTag("Moon"))
+        if (transform.position.y <= -1 && rb.linearVelocity.y < -5 || collision.gameObject.CompareTag("Moon"))
         {
             Destroy(gameObject);
         }
